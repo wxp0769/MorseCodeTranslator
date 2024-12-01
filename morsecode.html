@@ -37,7 +37,7 @@
     <div class="text-container">
         <div class="input-wrapper">
             <div class="input-header">
-                <label for="inputText" class="input-label">Input Text:</label>
+                <span class="input-label">Input Text:</span>
                 <button class="copy-input-btn" title="Copy to clipboard">
                     <i class="fas fa-copy"></i>
                 </button>
@@ -46,9 +46,12 @@
         </div>
         <div class="output-wrapper">
             <div class="output-header">
-                <button class="copy-output-btn" title="Copy to clipboard">
-                    <i class="fas fa-copy"></i>
-                </button>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span style="position: absolute; top: 0; left: 0;">Morse code</span>
+                    <button class="copy-output-btn" title="Copy to clipboard">
+                        <i class="fas fa-copy"></i>
+                    </button>
+                </div>
             </div>
             <textarea id="outputText" placeholder="Morse code will appear here..." readonly></textarea>
         </div>
