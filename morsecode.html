@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Morse Code Generator</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-content">
+        <nav class="category-nav">
+            <ul class="category-list">
+                <li class="category-item">
+                    <a href="#">All Articles</a>
+                </li>
+                <li class="category-item">
+                    <a href="#">Technology</a>
+                </li>
+                <li class="category-item">
+                    <a href="#">Science</a>
+                </li>
+                <li class="category-item">
+                    <a href="#">History</a>
+                </li>
+                <li class="category-item">
+                    <a href="#">Literature</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+  </header>
+  <div class="container">
+    <h1>Morse Code Translator</h1>
+    <p>Morse Code Translator allows you to translate Morse code into text. Our tool can also convert text into Morse code. You can enter a string of text or a combination of Morse dots and dashes to get started.</p>
+    <div class="text-container">
+        <div class="input-wrapper">
+            <div class="input-header">
+                <label for="inputText" class="input-label">Input Text:</label>
+                <button class="copy-input-btn" title="Copy to clipboard">
+                    <i class="fas fa-copy"></i>
+                </button>
+            </div>
+            <textarea id="inputText" placeholder="Enter text here..."></textarea>
+        </div>
+        <div class="output-wrapper">
+            <div class="output-header">
+                <button class="copy-output-btn" title="Copy to clipboard">
+                    <i class="fas fa-copy"></i>
+                </button>
+            </div>
+            <textarea id="outputText" placeholder="Morse code will appear here..." readonly></textarea>
+        </div>
+    </div>
+    <div class="actions">
+      <button id="playAudio">Play Audio</button>
+      <button id="downloadAudio">Download Audio</button>
+      <button id="downloadTxt">Download TXT</button>
+    </div>
+    <div id="errorMessage"></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
