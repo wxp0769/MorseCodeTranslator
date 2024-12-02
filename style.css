@@ -18,7 +18,7 @@ body {
   textarea {
     width: 100%;
     height: 100px;
-    margin: 10px 0;
+    margin: 0;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -64,7 +64,6 @@ body {
     width: 100%;
     min-height: 150px;
   }
-  
   .input-wrapper,
   .output-wrapper {
     position: relative;
@@ -76,7 +75,7 @@ body {
   .output-header {
     display: flex;
     justify-content: flex-end;
-    margin-bottom: 5px;
+    margin-bottom: 0px;
   }
   
   .copy-input-btn,

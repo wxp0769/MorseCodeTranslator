@@ -347,4 +347,24 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+function addText(text) {
+    const inputTextArea = document.getElementById('inputText');
+    inputTextArea.value += (inputTextArea.value ? ' ' : '') + text; // Append text with a space if there's existing text
+    convertToMorse(inputTextArea.value); // Call the function to convert to Morse code
+}
+
+function convertToMorse(text) {
+    const morseCodeMap = {
+        'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..', 'E': '.', 'F': '..-.',
+        'G': '--.', 'H': '....', 'I': '..', 'J': '.---', 'K': '-.-', 'L': '.-..',
+        'M': '--', 'N': '-.', 'O': '---', 'P': '.--.', 'Q': '--.-', 'R': '.-.',
+        'S': '...', 'T': '-', 'U': '..-', 'V': '...-', 'W': '.--', 'X': '-..-',
+        'Y': '-.--', 'Z': '--..', '0': '-----', '1': '.----', '2': '..---',
+        '3': '...--', '4': '....-', '5': '.....', '6': '-....', '7': '--...',
+        '8': '---..', '9': '----.', ' ': '/'
+    };
+
+    const morseCode = text.toUpperCase().split('').map(char => morseCodeMap[char] || '').join(' ');
+    document.getElementById('outputText').value = morseCode; // Update the output textarea
+}
   
