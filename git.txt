@@ -1,0 +1,4 @@
+git branch -m main
+git remote add origin git@github.com:wxp0769/MorseCodeTranslator.git
+git pull origin main --allow-unrelated-histories
+git push origin main
