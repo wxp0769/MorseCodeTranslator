@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Morse Code Generator</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    .green-button {
+        border-radius: 5px; /* 设置圆角 */
+        transition: background-color 0.3s; /* 添加过渡效果 */
+        border: none; /* 去除边缘线 */
+    }
+
+    .green-button:hover {
+        background-color: #ff133a; /* 悬停时的背景颜色 */
+    }
+
+    .text-container {
+        margin-bottom: 5px; /* 设置下边距为5px */
+    }
+
+    h2 {
+        font-size: 3rem; /* 设置字高为2.5rem */
+        inline-size: 100%;
+        padding: 0;
+        margin: 2rem 0;
+    }
+
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-content">
+        <nav class="category-nav" style="display: flex; justify-content: space-between; align-items: center;">
+            <ul class="category-list">
+                <li class="category-item">
+                    <a href="#" >Morse Code Encoding</a>
+                </li>
+                <li class="category-item">
+                    <a href="#" >Morse Code Decoding</a>
+                </li>
+                <li class="category-item">
+                    <a href="#" >Morse Code Alphabet</a>
+                </li>
+                <li class="category-item">
+                    <a href="#" >Letters</a>
+                </li>
+                <li class="category-item">
+                    <a href="#" >Numbers</a>
+                </li>
+                <li class="category-item">
+                    <a href="#" >Words</a>
+                </li>
+            </ul>
+            <select id="languageSwitcher" style="margin-left: auto;">
+                <option value="en">English</option>
+                <option value="es">Español</option>
+                <option value="fr">Français</option>
+                <option value="de">Deutsch</option>
+                <option value="de">中文</option>
+                <option value="de">Deutsch</option>
+                <!-- 添加更多语言选项 -->
+            </select>
+        </nav>
+    </div>
+  </header>
+  <div class="container">
+    <h1>Morse Code Translator</h1>
+    <p>Morse Code Translator allows you to translate Morse code into text. Our tool can also convert text into Morse code. You can enter a string of text or a combination of Morse dots and dashes to get started.</p>
+    <div class="text-container">
+        <div class="input-wrapper">
+            <div class="input-header">
+                <span class="input-label">Input Text:</span>
+                <button class="copy-input-btn" title="Copy to clipboard">
+                    <i class="fas fa-copy"></i>
+                </button>
+            </div>
+            <textarea id="inputText" placeholder="Enter text here..."></textarea>
+            <div class="button-container" style="text-align: left; ">
+                <button class="green-button" style="background-color: #007bff; height: 30px; font-size: 16px;" onclick="addText('SOS')">SOS</button>
+                <button class="green-button" style="background-color: #007bff; height: 30px; font-size: 16px;" onclick="addText('HI')">HI</button>
+                <button class="green-button" style="background-color: #007bff; height: 30px; font-size: 16px;" onclick="addText('I LOVE YOU')">I LOVE YOU</button>
+                <button class="green-button" style="background-color: #007bff; height: 30px; font-size: 16px;" onclick="addText('HELP')">HELP</button>
+                <button class="green-button" style="background-color: #007bff; height: 30px; font-size: 16px;" onclick="addText('HELLO')">HELLO</button>
+                </div>
+        </div>
+        <div class="output-wrapper">
+            <div class="output-header">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span style="position: absolute; top: 0; left: 0;">Output Morse code</span>
+                    <button class="copy-output-btn" title="Copy to clipboard">
+                        <i class="fas fa-copy"></i>
+                    </button>
+                </div>
+            </div>
+            <textarea id="outputText" placeholder="Morse code will appear here..." readonly></textarea>
+        </div>
+    </div>
+    <div class="actions">
+      <button id="playAudio">Play Audio</button>
+      <button id="downloadAudio">Download Audio</button>
+      <button id="downloadTxt">Download TXT</button>
+    </div>
+    <div id="errorMessage"></div>
+    <div class="morse-code-info">
+        <h2>What is Morse Code?</h2>
+        <p>Morse code is a system of dots (short signals) and dashes (long signals) used to represent letters, numbers, and symbols. This system allows for easy transmission of information using sound, light, or written symbols. But what exactly is Morse code? It’s a coding language that revolutionized communication in the 19th century and continues to be relevant today.</p>
+        <h3>A Brief History of Morse Code</h2>
+        <p>Invented by Samuel Morse in the 1830s, Morse code played a crucial role in early telecommunications, especially with the invention of the telegraph. It allowed for long-distance communication across oceans and continents.</p>
+        <h3>How Morse Code Works</h2>
+        <p>Each letter in Morse code is represented by a unique sequence of dots and dashes. For example, the letter "A" is represented by ".-", while the letter "B" is represented by "-...". Numbers and special characters also have their own unique sequences.</p>
+        <h2>What is Morse Code Translator?</h2>
+        <p>A Morse code translator is a specialized cipher decoder tool that converts regular text into Morse code and vice versa. Whether you're trying to translate Morse code back to English or convert a message into Morse code, this cipher decoder makes the process seamless.</p>
+        <p>At this page, you can find a simple and efficient Morse code translator and cipher decoder that allows you to enter text and instantly see it converted to Morse code. It also works as a Morse code decoder, helping you decode Morse messages into readable text.</p>
+        <h3>How Does a Morse Code Translator Work?</h3>
+        <p>The tool interprets the sequence of dots and dashes and translates them into readable English or converts text to Morse code symbols.</p>
+        <h3>Why Use a Morse Code Translator?</h3>
+        <p>There are several reasons to use a Morse Code Translator. From learning Morse Code to sending secret messages, a translator can be an invaluable tool for enthusiasts, educators, and professionals. Here are some common uses:</p>
+        <strong>Learning:</strong> Translators provide an easy way to study Morse Code at your own pace.
+        <h2>How to Use a Morse Code Translator</h2>
+        <p>Using a Morse code translator is simple. Follow these steps:</p>
+        <h3>Translating Morse Code to English</h3>
+        <p>If you have a message in Morse code and want to translate it into English:</p>
+        <ol>
+            <li>Copy the Morse code and paste it into the Morse code translator at this page.</li>
+            <li>The tool will quickly convert the Morse code to English.</li>
+        </ol>
+        <h3>Converting English to Morse Code</h3>
+        <p>If you want to send a message in Morse code:</p>
+        <ol>
+            <li>Type your message into the input box on the Morse code generator at this page.</li>
+            <li>The tool will convert text to Morse code instantly, allowing you to copy and use the output as needed.</li>
+        </ol>
+        <h3>Advanced Features of a Morse Code Translator</h3>
+        <h4>Morse Code Translator with Audio</h4>
+        <p>For those who need to translate Morse code audio, this page includes an audio feature. This allows users to play and download Morse code sounds.</p>
+        <h4>Morse Code Reader & Converter Tools</h4>
+        <p>Some translators also act as Morse code readers, which interpret messages in real-time. A Morse code converter lets you easily switch between different formats, whether you’re using text, audio, or visual signals.</p>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
